@@ -26,12 +26,18 @@ def split_str(string: str) -> List[str]:
 
 split_str("abcdef")
 
-common_characters = "".join(set("vJrwpWtwJgWr").intersection("hcsFMMfFFhFp"))
 
 
 def get_points(letter):
     if letter.islower():
-
         return ord(letter) - 96
     else:
         return ord(letter) - 38
+
+total = 0
+for string in res:
+    s1,s2 = split_str(string)
+    common_characters = "".join(set(s1).intersection(s2))
+    total+=get_points(common_characters)
+
+print(total)
